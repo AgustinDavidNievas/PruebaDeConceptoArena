@@ -1,0 +1,5 @@
+package seguidorDeCarrera
+
+class SeguidorDeCarrera {
+	
+}
