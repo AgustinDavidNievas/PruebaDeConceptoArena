@@ -26,6 +26,4 @@ class EditarNota extends MainWindow<Nota> {
 		]
 	}
 	
-	
-	
 }

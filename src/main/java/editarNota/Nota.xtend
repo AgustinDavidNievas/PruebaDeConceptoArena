@@ -11,4 +11,8 @@ class Nota {
 	def agregarNota(String nota){
 		//en construccion 
 	}
+	
+	new(){
+		super()
+	}
 }
