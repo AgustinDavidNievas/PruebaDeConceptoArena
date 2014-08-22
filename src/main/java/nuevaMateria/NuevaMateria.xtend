@@ -15,6 +15,7 @@ class NuevaMateria extends MainWindow<Materia> {
 	}
 	
 	override createContents(Panel mainPanel) {
+		this.setTitle("Nueva Materia")
 		new Label(mainPanel).text = "Nombre:"
 		new TextBox(mainPanel).bindValueToProperty("nombre")
 		new Button(mainPanel) => [
@@ -23,10 +24,14 @@ class NuevaMateria extends MainWindow<Materia> {
 		]
 	}
 	
+
 //	def crearMateria(String string) {/*me obliga a crear este metodo para que no este bugueado, pero en el ejemplo que vimos
 //	 * no esta asi :/
 //	 */
 //		throw new UnsupportedOperationException("TODO: auto-generated method stub")
 //	}
 //	
+	def static main(String[] args) {
+		new NuevaMateria().startApplication
+	}
 }
