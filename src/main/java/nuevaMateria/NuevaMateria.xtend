@@ -15,6 +15,17 @@ class NuevaMateria extends MainWindow<NuevaMateria> {
 	}
 	
 	override createContents(Panel mainPanel) {
+		new Label(mainPanel).text = "Nombre:"
+		new TextBox(mainPanel).bindValueToProperty("nombre")
+		new Button(mainPanel) => [
+			caption = "Aceptar"
+			onClick [ | this.modelObject.crearMateria("nombre") ]
+		]
+	}
+	
+	def crearMateria(String string) {/*me obliga a crear este metodo para que no este bugueado, pero en el ejemplo que vimos
+	 * no esta asi :/
+	 */
 		throw new UnsupportedOperationException("TODO: auto-generated method stub")
 	}
 	
