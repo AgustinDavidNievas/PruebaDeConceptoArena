@@ -8,10 +8,10 @@ import org.uqbar.arena.widgets.TextBox
 import org.uqbar.arena.windows.MainWindow
 import org.uqbar.arena.windows.ErrorsPanel
 
-class NuevaMateria extends MainWindow<NuevaMateria> {
+class NuevaMateria extends MainWindow<Materia> {
 	
-	new(NuevaMateria model) {
-		super(model)
+	new() {
+		super(new Materia)
 	}
 	
 	override createContents(Panel mainPanel) {
@@ -23,10 +23,10 @@ class NuevaMateria extends MainWindow<NuevaMateria> {
 		]
 	}
 	
-	def crearMateria(String string) {/*me obliga a crear este metodo para que no este bugueado, pero en el ejemplo que vimos
-	 * no esta asi :/
-	 */
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
-	}
-	
+//	def crearMateria(String string) {/*me obliga a crear este metodo para que no este bugueado, pero en el ejemplo que vimos
+//	 * no esta asi :/
+//	 */
+//		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+//	}
+//	
 }

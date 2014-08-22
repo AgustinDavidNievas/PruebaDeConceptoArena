@@ -17,6 +17,10 @@ class Materia {
 		this.nombre = nombre
 	}
 	
+	new() {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+	
 	def crearMateria(String nombre){
 		new Materia(nombre)
 		//probablemente cuando esto pasa se tiene que agregar en la coleccion de materias del seguidor de carrera
