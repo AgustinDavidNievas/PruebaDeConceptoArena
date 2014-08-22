@@ -11,5 +11,12 @@ class Materia {
 	@Property List<Nota> notasDeCursada
 	@Property String ubicacionDeLaMateria
 	
+	new(String nombre){
+		this.nombre = nombre
+	}
 	
+	def crearMateria(String nombre){
+		new Materia(nombre)
+		//probablemente cuando esto pasa se tiene que agregar en la coleccion de materias del seguidor de carrera
+	}
 }
