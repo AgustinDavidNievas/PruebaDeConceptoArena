@@ -18,7 +18,7 @@ class Materia {
 	}
 	
 	new() {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+		super()
 	}
 	
 	def crearMateria(String nombre){
