@@ -19,4 +19,8 @@ class Materia {
 		new Materia(nombre)
 		//probablemente cuando esto pasa se tiene que agregar en la coleccion de materias del seguidor de carrera
 	}
+	
+	def agregarNota(Nota nota){
+		this.notasDeCursada.add(nota)
+	}
 }
