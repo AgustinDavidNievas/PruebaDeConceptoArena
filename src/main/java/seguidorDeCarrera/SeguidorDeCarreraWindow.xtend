@@ -14,6 +14,7 @@ import org.uqbar.arena.widgets.CheckBox
 import nuevaMateria.NuevaMateria
 import org.uqbar.arena.windows.Dialog
 import editarNota.EditarNota
+import org.uqbar.arena.widgets.TextBox
 
 class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 
@@ -36,14 +37,29 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 			.onClick [ | this.nuevaMateria ] 
 			.setAsDefault
 		
-		new Button(actionsPanel)
+		new Button(actionsPanel)//TODO: Falta que verifique que alguna nota este seleccionada
 			.setCaption("Editar")
 			.onClick [ | this.editarNota ] 
 			.setAsDefault
-			}
 		
-		
+		new Button(actionsPanel)
+			.setCaption("+")
+			.onClick [ | this.editarNota]
+			.setAsDefault
 			
+		new Button(actionsPanel) //TODO: preguntar si esta seguro de querer borrar
+			.setCaption("-")
+			.onClick [ | this.borrarNota]	
+			.setAsDefault	
+		
+		
+		
+			}
+			
+		
+		
+		
+			//Panel linkeado con seguidorDeCarrera que es el main panel
 	
 	def createGrid(Panel mainPanel) {
 		var table = new Table<Materia>(mainPanel, typeof(Materia))
@@ -55,14 +71,18 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 		}
 
 	override protected createFormPanel(Panel mainPanel) {
-		var searchFormPanel = new Panel(mainPanel)
-		searchFormPanel.setLayout(new ColumnLayout(2))
+		var materiasFormPanel = new Panel(mainPanel)
+		materiasFormPanel.setLayout(new ColumnLayout(2))
 		
-		var labelNumero = new Label(searchFormPanel)
+		var labelNumero = new Label(materiasFormPanel)
 		labelNumero.text = "Año De Cursada"
 		labelNumero.foreground = Color::RED
+		
+		val textoNombreDeMateria = new TextBox(mainPanel)
+//		textoNombreDeMateria.bindValueToProperty("anioDeCursada")
+		textoNombreDeMateria.width = 300
 	
-		var labelNombre = new Label(searchFormPanel)
+		var labelNombre = new Label(materiasFormPanel)
 		labelNombre.text = "Profesor De Cursada"
 		labelNombre.foreground = Color::RED
 //	
@@ -105,6 +125,11 @@ def void nuevaMateria() {
 	
 	def openDialog(Dialog<?> dialog) {
 		dialog.open
+	}
+	
+	def void borrarNota() { //TODO: Que borre el que esté seleccionado
+		
+		
 	}
 
 }
