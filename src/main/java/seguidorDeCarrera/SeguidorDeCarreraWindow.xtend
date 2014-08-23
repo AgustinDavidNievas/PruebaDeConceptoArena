@@ -59,7 +59,7 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 	}
 
 	def void describeResultsGrid(Table<Materia> table) {
-		new Column<Materia>(table) //
+		new Column<Materia>(table) 
 		.setTitle("Materias").setFixedSize(150).bindContentsToProperty("nombre")
 
 	

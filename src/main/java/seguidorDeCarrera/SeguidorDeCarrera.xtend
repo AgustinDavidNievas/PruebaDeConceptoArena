@@ -18,10 +18,8 @@ class SeguidorDeCarrera {
 
 	
 	new() {
-		newArrayList(coleccionMaterias)
-//		coleccionMaterias.add(new Materia("Módulo B"))
-//		coleccionMaterias.add(new Materia("Módulo A	"))
-// Esto va en el HOme
-	}
+		newArrayList(coleccionMaterias)	}
+	
+
 
 }
