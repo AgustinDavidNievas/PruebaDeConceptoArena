@@ -43,6 +43,9 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 //	var checkFinalAprobado = new CheckBox(form)
 //		checkFinalAprobado.bindEnabledToProperty("finalAprobado")
 //		checkFinalAprobado.bindValueToProperty("finalAprobado")
+
+//		
+//	.bindContentsToTransformer([celular | if (celular.recibeResumenCuenta) "SI" else "NO"])
 	
 	}
 
@@ -59,8 +62,7 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 		new Column<Materia>(table) //
 		.setTitle("Materias").setFixedSize(150).bindContentsToProperty("nombre")
 
-	//		
-	//			.bindContentsToTransformer([celular | if (celular.recibeResumenCuenta) "SI" else "NO"])
+	
 	}
 	
 	override protected addActions(Panel actionsPanel) {
