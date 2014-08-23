@@ -11,6 +11,8 @@ import org.uqbar.arena.widgets.tables.Column
 import org.uqbar.arena.widgets.Label
 import java.awt.Color
 import org.uqbar.arena.widgets.CheckBox
+import nuevaMateria.NuevaMateria
+import org.uqbar.arena.windows.Dialog
 
 class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 
@@ -25,14 +27,14 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 
 		this.createGrid(mainPanel)
 		
-		new Button(mainPanel) => [
-			caption = "Nueva Materia"
-		//	onClick [|this.modelObject.crearMateria("nombre")]
-		]
+		}
 		
-
-	//		this.createGridActions(mainPanel)
-	}
+		override protected addActions(Panel actionsPanel) {
+		new Button(actionsPanel)
+			.setCaption("NuevaMateria")
+			.onClick [ | this.nuevaMateria ] 
+			.setAsDefault
+			}
 	
 	def createGrid(Panel mainPanel) {
 		var table = new Table<Materia>(mainPanel, typeof(Materia))
@@ -70,8 +72,7 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 			.setTitle("Nombre")
 			.setFixedSize(300)
 			.bindContentsToProperty("nombre")
-			
-//		this.describeResultsGrid(table)
+
 
 	}
 //
@@ -81,13 +82,14 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 //		.setTitle("Materias").setFixedSize(150).bindContentsToProperty("nombre")
 //	}
 //	
-	override protected addActions(Panel actionsPanel) {
-			new Button(actionsPanel)
-			.setCaption("Nueva Materia")	
-//			.onClick [ | modelObject.crearMateria() ] Creo que aca tendriamos q poner q abra la otra ventana
-			.setAsDefault
 
-		
+
+def void nuevaMateria() {
+		this.openDialog(new NuevaMateria(this))
+	}
+	
+	def openDialog(Dialog<?> dialog) {
+		dialog.open
 	}
 
 }
