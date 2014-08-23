@@ -8,6 +8,9 @@ import org.uqbar.arena.layout.ColumnLayout
 import org.uqbar.arena.widgets.tables.Table
 import nuevaMateria.Materia
 import org.uqbar.arena.widgets.tables.Column
+import org.uqbar.arena.widgets.Label
+import java.awt.Color
+import org.uqbar.arena.widgets.CheckBox
 
 class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 
@@ -28,6 +31,19 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 	override protected createFormPanel(Panel mainPanel) {
 		var searchFormPanel = new Panel(mainPanel)
 		searchFormPanel.setLayout(new ColumnLayout(2))
+		
+		var labelNumero = new Label(searchFormPanel)
+		labelNumero.text = "Año De Cursada"
+		labelNumero.foreground = Color::BLUE
+	
+		var labelNombre = new Label(searchFormPanel)
+		labelNombre.text = "Profesor De Cursada"
+		labelNombre.foreground = Color::BLUE
+	
+//	var checkFinalAprobado = new CheckBox(form)
+//		checkFinalAprobado.bindEnabledToProperty("finalAprobado")
+//		checkFinalAprobado.bindValueToProperty("finalAprobado")
+	
 	}
 
 	def protected createGrid(Panel mainPanel) {
@@ -49,7 +65,7 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 	
 	override protected addActions(Panel actionsPanel) {
 			new Button(actionsPanel)
-			.setCaption("Nueva Materia")
+			.setCaption("Nueva Materia")	
 //			.onClick [ | modelObject.crearMateria() ] Creo que aca tendriamos q poner q abra la otra ventana
 			.setAsDefault
 
