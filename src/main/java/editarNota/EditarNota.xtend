@@ -11,12 +11,9 @@ import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.commons.utils.ApplicationContext
 
 class EditarNota extends Dialog<Nota> {
-	
-	Nota original
-	
-		new(WindowOwner owner, Nota model) {
-		super(owner, model)
-		original = model.clone() as Nota
+		
+		new(WindowOwner owner) {
+		super(owner, new Nota)
 	}
 	
 	
