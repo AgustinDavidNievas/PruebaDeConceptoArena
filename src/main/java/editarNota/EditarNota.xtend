@@ -13,6 +13,10 @@ class EditarNota extends MainWindow<Nota> {
 		super(model)
 	}
 	
+	new() {
+		super(new Nota)
+	}
+	
 	override createContents(Panel mainPanel) {
 		this.setTitle("Editar Nota")
 		new Label(mainPanel).text = "Fecha:"
@@ -25,5 +29,6 @@ class EditarNota extends MainWindow<Nota> {
 			onClick [ | this.modelObject.agregarNota("nota") ]//aca se tiene que mandar un objeto nota...
 		]
 	}
+	
 	
 }
