@@ -30,7 +30,51 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 		this.createGrid(mainPanel)
 		
 		}
-		
+//		
+//		new(WindowOwner parent) {
+//		super(parent, new PlantsVsZombiesModel)
+//		setTitle("Plantas vs Zombies")
+//		taskDescription = "Seleccione el zombie y la fila a atacar."
+//	}
+//
+//	override def createMainTemplate(Panel mainPanel) {
+//		mainPanel.setLayout(new VerticalLayout)
+//		createFormPanel(mainPanel)
+//	}
+//
+//	override protected createFormPanel(Panel mainPanel) {
+//		addButtons(mainPanel)
+//		addPanelPlantasyZombies(mainPanel)
+//		addPlantinesPanel(mainPanel)
+//		addActionsPanel(mainPanel)
+//	}
+//		
+//		def addPanelPlantasyZombies(Panel mainPanel) {
+//		//Planel de plantas
+//		var panelDePlantas = new Panel(mainPanel).setWidth(300)
+//		panelDePlantas.setLayout(new ColumnLayout(2))
+//		this.createResultsGrid(panelDePlantas)
+//
+//		//Panel ZOMBIE
+//		var panelDeZombie = new Panel(panelDePlantas)
+//		panelDeZombie.setLayout(new ColumnLayout(2))
+//		new Label(panelDeZombie).setText("Zombies")
+//		new Label(panelDeZombie).setText("Elige el zombie y la fila")
+//
+//		new Label(panelDeZombie).setText("Zombie:")
+//		new Selector(panelDeZombie).allowNull(false) => [
+//			width = 150
+//			bindItemsToProperty("zombies")
+//			bindValueToProperty("zombieSeleccionado")			
+//		]
+//
+//		new Button(panelDeZombie).setAsDefault.setCaption("Atacar") => [
+//			onClick[|atacar]
+//			bindEnabled(new NotNullObservable("zombieSeleccionado"))
+//			disableOnError			
+//		]
+//	}
+//		
 		override protected addActions(Panel actionsPanel) {
 		new Button(actionsPanel)
 			.setCaption("NuevaMateria")
