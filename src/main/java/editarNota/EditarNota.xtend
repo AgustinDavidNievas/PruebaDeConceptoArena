@@ -6,18 +6,38 @@ import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.TextBox
 import org.uqbar.arena.widgets.CheckBox
 import org.uqbar.arena.widgets.Button
+import org.uqbar.arena.windows.Dialog
+import org.uqbar.arena.windows.WindowOwner
+import org.uqbar.commons.utils.ApplicationContext
 
-class EditarNota extends MainWindow<Nota> {
+class EditarNota extends Dialog<Nota> {
 	
-	new(Nota model) {
-		super(model)
+	Nota original
+	
+		new(WindowOwner owner, Nota model) {
+		super(owner, model)
+		original = model.clone() as Nota
 	}
 	
-	new() {
-		super(new Nota)
-	}
 	
-	override createContents(Panel mainPanel) {
+//	new(Nota model) {
+//		super(model)
+//	}
+//	
+//	new() {
+//		super(new Nota)
+//	}
+	
+	override protected createFormPanel(Panel mainPanel) {
+//		val form = new Panel(mainPanel)
+//		form.layout = new ColumnLayout(2)
+//		new Label(form).text = "Número"
+//		new TextBox(form)
+//			//.withFilter [ event | StringUtils::isNumeric(event.potentialTextResult) ]
+//			.bindValueToProperty("numero")
+	
+	
+	//override createContents(Panel mainPanel) {
 		this.setTitle("Editar Nota")
 		new Label(mainPanel).text = "Fecha:"
 		//new TextBox(mainPanel).bindValueToProperty("fecha")
@@ -33,15 +53,26 @@ class EditarNota extends MainWindow<Nota> {
 		var checkResumen = new CheckBox(mainPanel)
 		checkResumen.bindEnabledToProperty("aprobado")
 		checkResumen.bindValueToProperty("aprobado")
-		new Button(mainPanel) => [
-			caption = "Aceptar"
-			onClick [ | this.modelObject.agregarNota() ]
-		]
+	}	
+	override protected void addActions(Panel actions) {
+		new Button(actions)
+			.setCaption("Aceptar")
+			.onClick [|this.modelObject.agregarNota()]
+			.setAsDefault.disableOnError
+		
+//		new Button(mainPanel) => [
+//			caption = "Aceptar"
+//			onClick [ | this.modelObject.agregarNota() ]
+//		]
 	}
 	
-def static main(String[] args) {
-		new EditarNota().startApplication
-	}
+def getHomeCelulares() {
+		ApplicationContext.instance.getSingleton(typeof(Nota)) as HomeNotas
+	}	
+
+//def static main(String[] args) {
+//		new EditarNota().startApplication
+//	}
 	
 	
 }
