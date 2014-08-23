@@ -24,6 +24,8 @@ class Materia {
 	
 	def crearMateria(String nombre){
 		new Materia(nombre)
+		notasDeCursada = newArrayList
+	
 		//probablemente cuando esto pasa se tiene que agregar en la coleccion de materias del seguidor de carrera
 	}
 	
