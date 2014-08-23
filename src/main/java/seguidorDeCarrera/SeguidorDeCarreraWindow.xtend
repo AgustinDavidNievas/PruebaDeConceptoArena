@@ -25,6 +25,10 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 
 		this.createGrid(mainPanel)
 		
+		new Button(mainPanel) => [
+			caption = "Nueva Materia"
+		//	onClick [|this.modelObject.crearMateria("nombre")]
+		]
 		
 
 	//		this.createGridActions(mainPanel)
