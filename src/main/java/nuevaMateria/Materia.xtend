@@ -9,7 +9,7 @@ class Materia {
 	
 	@Property Boolean finalAprobado
 	@Property String nombre
-	@Property int añoDeCursada
+	@Property int anioDeCursada
 	@Property List<Nota> notasDeCursada
 	@Property String ubicacionDeLaMateria
 	@Property String profesor
