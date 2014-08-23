@@ -40,14 +40,16 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 		labelNombre.text = "Profesor De Cursada"
 		labelNombre.foreground = Color::BLUE
 	
-//	var checkFinalAprobado = new CheckBox(form)
-//		checkFinalAprobado.bindEnabledToProperty("finalAprobado")
-//		checkFinalAprobado.bindValueToProperty("finalAprobado")
+	var checkFinalAprobado = new CheckBox(searchFormPanel)
+	checkFinalAprobado.bindEnabledToProperty("finalAprobado")
+	checkFinalAprobado.bindValueToProperty("finalAprobado")
 
 //		
 //	.bindContentsToTransformer([celular | if (celular.recibeResumenCuenta) "SI" else "NO"])
 	
 	}
+
+//Esta es la lista de materias con la barrita linda y toda la cosa.
 
 	def protected createGrid(Panel mainPanel) {
 		var table = new Table<Materia>(mainPanel, typeof(Materia))
@@ -58,11 +60,10 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 
 	}
 
+//Esta intenta ser la parte de NotasDeCursada 
 	def void describeResultsGrid(Table<Materia> table) {
 		new Column<Materia>(table) 
 		.setTitle("Materias").setFixedSize(150).bindContentsToProperty("nombre")
-
-	
 	}
 	
 	override protected addActions(Panel actionsPanel) {
