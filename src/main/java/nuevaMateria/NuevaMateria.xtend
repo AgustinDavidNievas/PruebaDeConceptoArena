@@ -15,11 +15,22 @@ class NuevaMateria extends MainWindow<Materia> {
 	}
 
 	override createContents(Panel mainPanel) {
+		
 		this.setTitle("Nueva Materia")
+		
 		new Label(mainPanel).text = "Nombre:"
 		val textoNombre = new TextBox(mainPanel)
 		textoNombre.bindValueToProperty("nombre")
 		textoNombre.width = 200
+		
+		new Label(mainPanel).text = "Profesor:"
+		val textoProfesor = new TextBox(mainPanel)
+		textoProfesor.bindValueToProperty("profesor")
+		textoProfesor.width = 200
+		
+		new Label(mainPanel).text = "ubicacionDeLaMateria"
+		val textoUbicacion = new TextBox(mainPanel)
+		textoUbicacion.width = 200
 
 		//esto es para el tamaño, pero parece que no funciona con un MainWindows
 		new Button(mainPanel) => [

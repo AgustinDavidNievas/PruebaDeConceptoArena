@@ -12,6 +12,7 @@ class Materia {
 	@Property int añoDeCursada
 	@Property List<Nota> notasDeCursada
 	@Property String ubicacionDeLaMateria
+	@Property String profesor
 	
 	new(String nombre){
 		this.nombre = nombre
