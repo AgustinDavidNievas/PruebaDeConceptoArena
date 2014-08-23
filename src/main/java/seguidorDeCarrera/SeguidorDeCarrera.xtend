@@ -16,10 +16,8 @@ class SeguidorDeCarrera {
 
 	}
 
-	
 	new() {
-		coleccionMaterias = newArrayList	}
-	
-
+		this.coleccionMaterias = newArrayList
+	}
 
 }
