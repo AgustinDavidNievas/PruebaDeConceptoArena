@@ -18,7 +18,7 @@ class SeguidorDeCarrera {
 
 	
 	new() {
-		newArrayList(coleccionMaterias)	}
+		coleccionMaterias = newArrayList	}
 	
 
 

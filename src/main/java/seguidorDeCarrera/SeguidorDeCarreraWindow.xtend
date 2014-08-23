@@ -39,10 +39,10 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 		var labelNombre = new Label(searchFormPanel)
 		labelNombre.text = "Profesor De Cursada"
 		labelNombre.foreground = Color::BLUE
-	
-	var checkFinalAprobado = new CheckBox(searchFormPanel)
-	checkFinalAprobado.bindEnabledToProperty("finalAprobado")
-	checkFinalAprobado.bindValueToProperty("finalAprobado")
+//	
+//	var checkFinalAprobado = new CheckBox(searchFormPanel)
+//	checkFinalAprobado.bindEnabledToProperty("finalAprobado")
+//	checkFinalAprobado.bindValueToProperty("finalAprobado")
 
 //		
 //	.bindContentsToTransformer([celular | if (celular.recibeResumenCuenta) "SI" else "NO"])
