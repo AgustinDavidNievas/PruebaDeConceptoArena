@@ -24,9 +24,18 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 		super.createMainTemplate(mainPanel)
 
 		this.createGrid(mainPanel)
+		
+		
 
 	//		this.createGridActions(mainPanel)
 	}
+	
+	def createGrid(Panel mainPanel) {
+		var table = new Table<Materia>(mainPanel, typeof(Materia))
+		table.heigth = 200
+		table.width = 450
+		this.describeResultsGrid(table)
+		}
 
 	override protected createFormPanel(Panel mainPanel) {
 		var searchFormPanel = new Panel(mainPanel)
@@ -34,11 +43,11 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 		
 		var labelNumero = new Label(searchFormPanel)
 		labelNumero.text = "Año De Cursada"
-		labelNumero.foreground = Color::BLUE
+		labelNumero.foreground = Color::RED
 	
 		var labelNombre = new Label(searchFormPanel)
 		labelNombre.text = "Profesor De Cursada"
-		labelNombre.foreground = Color::BLUE
+		labelNombre.foreground = Color::RED
 //	
 //	var checkFinalAprobado = new CheckBox(searchFormPanel)
 //	checkFinalAprobado.bindEnabledToProperty("finalAprobado")
@@ -51,21 +60,23 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 
 //Esta es la lista de materias con la barrita linda y toda la cosa.
 
-	def protected createGrid(Panel mainPanel) {
-		var table = new Table<Materia>(mainPanel, typeof(Materia))
-		table.heigth = 200
-		table.width = 450
-		table.bindItemsToProperty("nombre")
-		this.describeResultsGrid(table)
-
-	}
-
-//Esta intenta ser la parte de NotasDeCursada 
-	def void describeResultsGrid(Table<Materia> table) {
+	def protected describeResultsGrid(Table<Materia> table) {
+			
 		new Column<Materia>(table) 
-		.setTitle("Materias").setFixedSize(150).bindContentsToProperty("nombre")
+			.setTitle("Nombre")
+			.setFixedSize(300)
+			.bindContentsToProperty("nombre")
+			
+//		this.describeResultsGrid(table)
+
 	}
-	
+//
+////Esta intenta ser la parte de NotasDeCursada 
+//	def void describeResultsGrid(Table<Materia> table) {
+//		new Column<Materia>(table) 
+//		.setTitle("Materias").setFixedSize(150).bindContentsToProperty("nombre")
+//	}
+//	
 	override protected addActions(Panel actionsPanel) {
 			new Button(actionsPanel)
 			.setCaption("Nueva Materia")	
