@@ -26,7 +26,7 @@ class EditarNota extends MainWindow<Nota> {
 		new CheckBox(mainPanel).bindValueToProperty("aprobado") //esto no se si es hacie, se tiene que linkear con el bool
 		new Button(mainPanel) => [
 			caption = "Aceptar"
-			onClick [ | this.modelObject.agregarNota("nota") ]//aca se tiene que mandar un objeto nota...
+			onClick [ | this.modelObject.agregarNota() ]
 		]
 	}
 	
