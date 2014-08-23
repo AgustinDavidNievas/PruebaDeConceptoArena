@@ -5,25 +5,21 @@ import nuevaMateria.Materia
 import org.uqbar.commons.utils.Observable
 
 @Observable
-class SeguidorDeCarrera  {
+class SeguidorDeCarrera {
 
 	@Property
 	List<Materia> coleccionMaterias
-	
+
 	def agregarMateria(Materia materia) {
-		
+
 		this.coleccionMaterias.add(materia)
-				
+
 	}
-	
-	
-	new () {
+
+	new() {
 		newArrayList(coleccionMaterias)
 		coleccionMaterias.add(new Materia("Módulo B"))
 		coleccionMaterias.add(new Materia("Módulo A	"))
-		
-		
-		
 	}
-	
+
 }
