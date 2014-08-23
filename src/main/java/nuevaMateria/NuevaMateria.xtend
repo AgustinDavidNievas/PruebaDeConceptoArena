@@ -7,11 +7,13 @@ import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.TextBox
 import org.uqbar.arena.windows.MainWindow
 import org.uqbar.arena.windows.ErrorsPanel
+import org.uqbar.arena.windows.Dialog
+import org.uqbar.arena.windows.WindowOwner
 
-class NuevaMateria extends MainWindow<Materia> {
+class NuevaMateria extends Dialog<Materia> {
 
-	new() {
-		super(new Materia)
+	new(WindowOwner parent) {
+		super(parent, new Materia)
 	}
 
 	override createContents(Panel mainPanel) {
@@ -29,9 +31,24 @@ class NuevaMateria extends MainWindow<Materia> {
 		]
 	}
 
-	def static main(String[] args) {
+	/*def static main(String[] args) {
 		new NuevaMateria().startApplication
+	}*/
+	
+	override createFormPanel(Panel mainPanel) {
+		this.setTitle("Nueva Materia")
+
+		new Label(mainPanel).text = "Nombre:"
+		val textoNombre = new TextBox(mainPanel)
+		textoNombre.bindValueToProperty("nombre")
+		textoNombre.width = 200
+
+		new Button(mainPanel) => [
+			caption = "Aceptar"
+			onClick [|this.modelObject.crearMateria("nombre")]
+		]
 	}
+	
 }
 //	override protected createFormPanel(Panel mainPanel) {
 //		val form = new Panel(mainPanel)
