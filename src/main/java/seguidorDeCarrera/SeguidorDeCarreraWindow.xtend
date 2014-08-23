@@ -13,6 +13,7 @@ import java.awt.Color
 import org.uqbar.arena.widgets.CheckBox
 import nuevaMateria.NuevaMateria
 import org.uqbar.arena.windows.Dialog
+import editarNota.EditarNota
 
 class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 
@@ -21,7 +22,7 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 	}
 
 	override def createMainTemplate(Panel mainPanel) {
-		title = "Seguidor De Carrera"
+//		title = "Seguidor De Carrera"
 
 		super.createMainTemplate(mainPanel)
 
@@ -34,13 +35,23 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 			.setCaption("NuevaMateria")
 			.onClick [ | this.nuevaMateria ] 
 			.setAsDefault
+		
+		new Button(actionsPanel)
+			.setCaption("Editar")
+			.onClick [ | this.editarNota ] 
+			.setAsDefault
 			}
+		
+		
+			
 	
 	def createGrid(Panel mainPanel) {
 		var table = new Table<Materia>(mainPanel, typeof(Materia))
 		table.heigth = 200
 		table.width = 450
 		this.describeResultsGrid(table)
+		
+		
 		}
 
 	override protected createFormPanel(Panel mainPanel) {
@@ -87,6 +98,10 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 def void nuevaMateria() {
 		this.openDialog(new NuevaMateria(this))
 	}
+	
+	def void editarNota() {
+		this.openDialog(new EditarNota(this))
+		}
 	
 	def openDialog(Dialog<?> dialog) {
 		dialog.open
