@@ -19,6 +19,7 @@ class Materia {
 	new(String nombre){
 		this.nombre = nombre
 		this.seguidorDeCarrera = new SeguidorDeCarrera
+		println("Se creo el seguidor de carrera")
 	}
 	
 	new() {

@@ -23,7 +23,8 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 	}
 
 	override def createMainTemplate(Panel mainPanel) {
-//		title = "Seguidor De Carrera"
+
+		this.setTitle("Seguidor De Carrera")
 
 		super.createMainTemplate(mainPanel)
 
