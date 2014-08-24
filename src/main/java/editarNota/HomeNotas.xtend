@@ -2,7 +2,6 @@ package editarNota
 
 import org.uqbar.commons.model.CollectionBasedHome
 import org.uqbar.commons.utils.Observable
-import com.uqbar.commons.collections.Predicate
 
 @Observable
 class HomeNotas extends CollectionBasedHome<Nota> {
