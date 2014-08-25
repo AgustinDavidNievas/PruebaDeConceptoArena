@@ -30,20 +30,7 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 
 	}
 
-	//
-	//	override def createMainTemplate(Panel mainPanel) {
-	//		mainPanel.setLayout(new VerticalLayout)
-	//		createFormPanel(mainPanel)t
-	//	}
-	//
-	//	override protected createFormPanel(Panel mainPanel) {
-	//		addButtons(mainPanel)
-	//		addPanelMaterias(mainPanel)
-	//		createGrid(panelDeMaterias)
-	//		addPlantinesPanel(mainPanel)
-	//		addActionsPanel(mainPanel)
-	//	}
-	//	
+	
 	def addButtons(Panel mainPanel) {
 		var buttonsPanel = new Panel(mainPanel)
 		buttonsPanel.setLayout(new ColumnLayout(7))
@@ -92,25 +79,25 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 
 	//Panel linkeado con seguidorDeCarrera que es el main panel
 	def createGrid(Panel mainPanel) {
-		var table = new Table<Materia>(mainPanel, typeof(Materia))
-		table.heigth = 200
-		table.width = 450
-		
-//		def describeResultsGrid(Table<Fila> table) {
-//		new Column<Fila>(table).setTitle("Terreno").setFixedSize(75).bindContentsToProperty("tipo");
-//
-//		var cantidadDeColumnas = modelObject.jardinDeJuego.numeroDeCasillerosPorFila
-//		for (Integer i : 0 .. cantidadDeColumnas - 1) {
-//			new Column<Fila>(table).setTitle((i + 1).toString).setWeight(50).
-//				bindContentsToTransformer(new TransformerDeFila(i));
-//		}
 
-	//		this.describeResultsGrid(table)
+		new Table<Materia>(mainPanel, typeof(Materia)) => [
+			heigth = 200
+			width = 450
+//			bindItemsToProperty("nombre")
+			this.describeResultsGrid(it)
+		]
+
+	}
+
+	def describeResultsGrid(Table<Materia> table) {
+		new Column<Materia>(table)
+		.setTitle("Materias")
+		.setFixedSize(75)
+		.bindContentsToProperty("nombre")
 	}
 
 	override protected createFormPanel(Panel mainPanel) {
 
-		
 		addPanelMaterias(mainPanel)
 		addButtons(mainPanel)
 		addDatosDeMateriaPanel(mainPanel)
@@ -122,7 +109,8 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 	}
 
 	def addPanelMaterias(Panel mainPanel) {
-		var panelDeMaterias = new Panel(mainPanel).setWidth(300)
+		var panelDeMaterias = new Panel(mainPanel)
+		.setWidth(300)
 		panelDeMaterias.setLayout(new ColumnLayout(2))
 		this.createGrid(panelDeMaterias)
 
