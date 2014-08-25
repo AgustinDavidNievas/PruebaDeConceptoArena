@@ -12,9 +12,12 @@ import org.uqbar.arena.layout.ColumnLayout
 
 class EditarNota extends Dialog<Nota> {
 
+	Nota original
+
 	new(WindowOwner owner, Nota nota) {
 
 		super(owner, nota)
+		original = nota.clone() as Nota
 	}
 
 	//	new(Nota model) {
@@ -49,11 +52,15 @@ class EditarNota extends Dialog<Nota> {
 	}
 
 	override protected void addActions(Panel actions) {
-		new Button(actions).setCaption("Aceptar").onClick[|this.modelObject.agregarFecha("fecha")]
-		.onClick[| this.modelObject.agregarDesc("descripcion")]
-		.onClick[|this.accept].setAsDefault.disableOnError
+		new Button(actions).setCaption("Aceptar").onClick[|this.modelObject.agregarFecha("fecha")].onClick[|
+			this.modelObject.agregarDesc("descripcion")]
 
-
+		//		.onClick[|this.accept].setAsDefault.disableOnError
+		new Button(actions) //
+		.setCaption("Cancelar").onClick [ |
+			original.copiarA(this.modelObject)
+			this.cancel
+		]
 
 	}
 
