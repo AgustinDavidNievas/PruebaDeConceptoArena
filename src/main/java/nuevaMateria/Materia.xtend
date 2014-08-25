@@ -31,15 +31,11 @@ class Materia {
 		this.seguidorDeCarrera = new SeguidorDeCarrera
 		this.seguidorDeCarrera.agregarMateria(this)
 
-		println("pase por crearMateria, se creo el newArrayList y se agrego en el seguidorDeMaterias")
-
-	//probablemente cuando esto pasa se tiene que agregar en la coleccion de materias del seguidor de carrera
 	}
 
 	def agregarNota(Nota nota) {
 		this.seguidorDeCarrera = new SeguidorDeCarrera
 		this.notasDeCursada = newArrayList
-
 		this.notasDeCursada.add(nota)
 
 	}
