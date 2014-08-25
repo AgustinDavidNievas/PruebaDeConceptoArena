@@ -20,6 +20,7 @@ import editarNota.CrearNotaWindow
 import org.uqbar.arena.layout.VerticalLayout
 import org.uqbar.arena.widgets.CheckBox
 import editarNota.Nota
+import org.uqbar.arena.widgets.Selector
 
 class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 
@@ -28,7 +29,8 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 	}
 
 	override def createMainTemplate(Panel mainPanel) {
-
+		this.setTitle("Seguidor De Carrera")
+		this.setTaskDescription("Seguidor de Carrera")
 		mainPanel.setLayout(new ColumnLayout(2))
 		createFormPanel(mainPanel)
 
@@ -51,7 +53,7 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 	def createGrid(Panel mainPanel) {
 
 		new Table<Materia>(mainPanel, typeof(Materia)) => [
-			heigth = 500
+			heigth = 350
 			width = 150
 			//			bindItemsToProperty("nombre")
 			this.describeResultsGrid(it)
@@ -110,10 +112,12 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 	}
 
 	def createGridResultadosParcial(Panel mainPanel) {
+		
+		var notasDeParcialLabel= new Label(mainPanel).setText("Notas de Parcial")
 
 		new Table<Nota>(mainPanel, typeof(Nota)) => [
-			heigth = 100
-			width = 100
+			heigth = 50
+			width = 300
 			//			bindItemsToProperty("nombre")
 			this.describeGridResultadosParcial(it)
 		]
@@ -122,17 +126,17 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 	def describeGridResultadosParcial(Table<Nota> table) {
 		new Column<Nota>(table)
 		.setTitle("Fecha")
-		.setFixedSize(30)
+		.setFixedSize(60)
 		.bindContentsToProperty("fecha")
 
 		new Column<Nota>(table)
 		.setTitle("Descripcion")
-		.setFixedSize(30)
+		.setFixedSize(60)
 		.bindContentsToProperty("descripcion")
 
 		new Column<Nota>(table)
 		.setTitle("Aprobado")
-		.setFixedSize(30)
+		.setFixedSize(60)
 		.bindContentsToProperty("aprobado")
 		.bindContentsToTransformer([nota|if(nota.aprobado) "SI" else "NO"])
 
@@ -147,8 +151,8 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 
 	def addDatosDeMateriaPanel(Panel mainPanel) {
 
-		var datosMateriasPanel = new Panel(mainPanel)
-		datosMateriasPanel.setLayout(new ColumnLayout(5))
+		var datosMateriasPanel = new Panel(mainPanel).setWidth(500)
+		datosMateriasPanel.setLayout(new ColumnLayout(4))
 
 		var labelAnio = new Label(datosMateriasPanel).setText("Año de Cursada")
 		new TextBox(datosMateriasPanel) => [
@@ -156,15 +160,33 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 			//			bindValueToProperty("columnaAPlantar")	
 		]
 		labelAnio.foreground = Color::RED
-
+		
+		
 		var labelProfesor = new Label(datosMateriasPanel).setText("Profesor")
 		new TextBox(datosMateriasPanel) => []
 		labelProfesor.foreground = Color::magenta
-
+		
+		var labelFinalAprobado = new Label(datosMateriasPanel).setText("Final Aprobado")
+		labelAnio.foreground = Color::BLUE
 		var checkFinalAprobado = new CheckBox(datosMateriasPanel)
 
 	//	checkFinalAprobado.bindEnabledToProperty("finalAprobado")
 	//	checkFinalAprobado.bindValueToProperty("finalAprobado")
+		
+		
+		var labelUbicacionDeMateria = new Label(datosMateriasPanel).setText("Ubicación materia")
+		.foreground = Color::ORANGE
+		new Selector(datosMateriasPanel).allowNull(false) => [
+			width = 150
+//TODO: que muestre las posibles opciones.
+//**Ejemplo
+//			bindItemsToProperty("zombies")
+//			bindValueToProperty("zombieSeleccionado")	
+
+		
+		]
+
+		
 	}
 
 	
