@@ -2,9 +2,19 @@ package editarNota
 
 import org.uqbar.commons.model.CollectionBasedHome
 import org.uqbar.commons.utils.Observable
+import java.util.Date
 
 @Observable
 class HomeNotas extends CollectionBasedHome<Nota> {
+	
+		
+		def void create(Date pFecha, String pDescripcion, Boolean estasAprobado) {
+		var nota = new Nota
+		nota.fecha = pFecha
+		nota.descripcion = pDescripcion		
+		nota.aprobado = estasAprobado
+		this.create(nota)
+	}
 	
 	override def getEntityType() {
 		typeof(Nota)

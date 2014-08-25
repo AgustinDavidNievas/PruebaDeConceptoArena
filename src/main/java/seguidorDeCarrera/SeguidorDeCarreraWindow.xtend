@@ -14,8 +14,12 @@ import org.uqbar.arena.widgets.tables.Table
 import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
+
+import editarNota.CrearNotaWindow
+
 import org.uqbar.arena.layout.VerticalLayout
 import org.uqbar.arena.widgets.CheckBox
+
 
 class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 
@@ -161,7 +165,7 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 	}
 
 	def void editarNota() {
-		this.openDialog(new EditarNota(this))
+		this.openDialog(new CrearNotaWindow(this))
 	}
 
 	def openDialog(Dialog<?> dialog) {

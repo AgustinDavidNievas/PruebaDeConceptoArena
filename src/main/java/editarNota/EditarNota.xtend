@@ -11,8 +11,10 @@ import org.uqbar.commons.utils.ApplicationContext
 
 class EditarNota extends Dialog<Nota> {
 		
-		new(WindowOwner owner) {
-		super(owner, new Nota)
+		new(WindowOwner owner, Nota nota) {
+		
+			
+		super(owner, nota)
 	}
 	
 	
@@ -25,12 +27,7 @@ class EditarNota extends Dialog<Nota> {
 //	}
 	
 	override protected createFormPanel(Panel mainPanel) {
-//		val form = new Panel(mainPanel)
-//		form.layout = new ColumnLayout(2)
-//		new Label(form).text = "Número"
-//		new TextBox(form)
-//			//.withFilter [ event | StringUtils::isNumeric(event.potentialTextResult) ]
-//			.bindValueToProperty("numero")
+
 	
 	
 	//override createContents(Panel mainPanel) {
@@ -53,16 +50,20 @@ class EditarNota extends Dialog<Nota> {
 	override protected void addActions(Panel actions) {
 		new Button(actions)
 			.setCaption("Aceptar")
-			.onClick [|this.modelObject.agregarNota()]
+			.onClick [|this.modelObject.agregarFecha("fecha")]
+			.onClick [|this.modelObject.agregarDesc("descripcion")]
 			.setAsDefault.disableOnError
+	}		
+	
+
 		
 //		new Button(mainPanel) => [
 //			caption = "Aceptar"
 //			onClick [ | this.modelObject.agregarNota() ]
 //		]
-	}
 	
-def getHomeCelulares() {
+	
+def getHomeNotas() {
 		ApplicationContext.instance.getSingleton(typeof(Nota)) as HomeNotas
 	}	
 
