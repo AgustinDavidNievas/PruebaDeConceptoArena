@@ -8,8 +8,7 @@ import java.util.ArrayList
 @Observable
 class SeguidorDeCarrera {
 
-	@Property
-	List<Materia> coleccionMaterias = new ArrayList
+	@Property List<Materia> coleccionMaterias = new ArrayList
 
 	def agregarMateria(Materia materia) {
 
@@ -20,7 +19,7 @@ class SeguidorDeCarrera {
 	new() {
 		this.inicializarColeccionDeMaterias
 	}
-	
+
 	def inicializarColeccionDeMaterias() {
 		coleccionMaterias = newArrayList
 	}
