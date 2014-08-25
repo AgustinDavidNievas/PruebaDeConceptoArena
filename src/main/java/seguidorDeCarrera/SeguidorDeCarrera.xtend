@@ -3,12 +3,13 @@ package seguidorDeCarrera
 import java.util.List
 import nuevaMateria.Materia
 import org.uqbar.commons.utils.Observable
+import java.util.ArrayList
 
 @Observable
 class SeguidorDeCarrera {
 
 	@Property
-	List<Materia> coleccionMaterias
+	List<Materia> coleccionMaterias = new ArrayList
 
 	def agregarMateria(Materia materia) {
 
@@ -17,7 +18,11 @@ class SeguidorDeCarrera {
 	}
 
 	new() {
-		this.coleccionMaterias = newArrayList
+		this.inicializarColeccionDeMaterias
+	}
+	
+	def inicializarColeccionDeMaterias() {
+		coleccionMaterias = newArrayList
 	}
 
 }
