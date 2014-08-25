@@ -25,7 +25,7 @@ import org.uqbar.arena.widgets.Selector
 class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 
 	new(WindowOwner parent) {
-		super(parent, new SeguidorDeCarrera)
+		super(parent, SeguidorDeCarrera.seguidorDeCarreraUnico)
 	}
 
 	override def createMainTemplate(Panel mainPanel) {
