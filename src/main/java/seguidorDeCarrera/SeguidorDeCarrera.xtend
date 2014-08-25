@@ -13,6 +13,9 @@ class SeguidorDeCarrera {
 	@Property String ubicacionDeLaMateria
 	@Property int anioDeCursada
 	@Property Boolean finalAprobado
+	
+	@Property Observer observerDelCheckBoxAprobado
+	@Property Observer observerDelAnioDeCursada
 
 	//Selecciones
 	@Property Materia materiaSeleccionada
@@ -31,5 +34,12 @@ class SeguidorDeCarrera {
 	def inicializarColeccionDeMaterias() {
 		coleccionMaterias = newArrayList
 	}
-
+	
+	def clickEnCheckBoxAprobado(Materia materiaSeleccionada){
+		this.observerDelCheckBoxAprobado.apretaronElCheckBox(this,materiaSeleccionada)
+	}
+	
+	def settearonElAnioDeCursadaDe(Materia materiaSeleccionada, int anioDeCursada){
+		this.observerDelAnioDeCursada.settearonUnAnio(materiaSeleccionada,anioDeCursada)
+	}
 }
