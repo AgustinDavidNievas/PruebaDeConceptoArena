@@ -8,6 +8,7 @@ import org.uqbar.arena.widgets.TextBox
 import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.commons.utils.ApplicationContext
+import org.uqbar.arena.layout.ColumnLayout
 
 class EditarNota extends Dialog<Nota> {
 		
@@ -26,6 +27,10 @@ class EditarNota extends Dialog<Nota> {
 //		super(new Nota)
 //	}
 	
+	
+	
+	
+	
 	override protected createFormPanel(Panel mainPanel) {
 
 	
@@ -42,8 +47,10 @@ class EditarNota extends Dialog<Nota> {
 		val textoNombre2 = new TextBox(mainPanel)
 		textoNombre2.bindValueToProperty("descripcion")
 		textoNombre2.width = 200
-		//new CheckBox(mainPanel).bindValueToProperty("aprobado") //esto no se si es hacie, se tiene que linkear con el bool
-		var checkResumen = new CheckBox(mainPanel)
+		val form = new Panel(mainPanel)
+		form.layout = new ColumnLayout(2)
+		new Label(form).text = "Aprobo Final"
+		var checkResumen = new CheckBox(form)
 		checkResumen.bindEnabledToProperty("aprobado")
 		checkResumen.bindValueToProperty("aprobado")
 	}	
