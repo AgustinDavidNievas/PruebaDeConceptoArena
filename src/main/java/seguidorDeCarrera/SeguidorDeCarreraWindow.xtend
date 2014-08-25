@@ -19,7 +19,7 @@ import editarNota.CrearNotaWindow
 
 import org.uqbar.arena.layout.VerticalLayout
 import org.uqbar.arena.widgets.CheckBox
-
+import editarNota.Nota
 
 class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 
@@ -34,7 +34,6 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 
 	}
 
-	
 	def addButtons(Panel mainPanel) {
 		var buttonsPanel = new Panel(mainPanel)
 		buttonsPanel.setLayout(new ColumnLayout(7))
@@ -71,14 +70,6 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 	override protected addActions(Panel actionsPanel) {
 		new Button(actionsPanel).setCaption("NuevaMateria").onClick[|this.nuevaMateria].setAsDefault
 
-		new Button(actionsPanel)//TODO: Falta que verifique que alguna nota este seleccionada
-		.setCaption("Editar").onClick[|this.editarNota].setAsDefault
-
-		new Button(actionsPanel).setCaption("+").onClick[|this.editarNota].setAsDefault
-
-		new Button(actionsPanel) //TODO: preguntar si esta seguro de querer borrar
-		.setCaption("-").onClick[|this.borrarNota].setAsDefault
-
 	}
 
 	//Panel linkeado con seguidorDeCarrera que es el main panel
@@ -87,34 +78,82 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 		new Table<Materia>(mainPanel, typeof(Materia)) => [
 			heigth = 500
 			width = 150
-//			bindItemsToProperty("nombre")
+			//			bindItemsToProperty("nombre")
 			this.describeResultsGrid(it)
 		]
 
 	}
 
 	def describeResultsGrid(Table<Materia> table) {
-		new Column<Materia>(table)
-		.setTitle("Materias")
-		.setFixedSize(30)
-		.bindContentsToProperty("nombre")
+		new Column<Materia>(table).setTitle("Materias").setFixedSize(30).bindContentsToProperty("nombre")
 	}
 
 	override protected createFormPanel(Panel mainPanel) {
 
 		addPanelMaterias(mainPanel)
-		addButtons(mainPanel)
 		addDatosDeMateriaPanel(mainPanel)
+		addButtons(mainPanel)
+		addResultadosDeParcialesPanel(mainPanel)
 
-	//		addActionsPanel(mainPanel)
-	//	
-	//		
-	//	.bindContentsToTransformer([celular | if (celular.recibeResumenCuenta) "SI" else "NO"])
+	}
+
+	def addResultadosDeParcialesPanel(Panel mainPanel) {
+		var resultadosDeParcialesPanel = new Panel(mainPanel)
+		resultadosDeParcialesPanel.setLayout(new ColumnLayout(4))
+		this.createGridResultadosParcial(resultadosDeParcialesPanel)
+
+		addButtonsPrueba(resultadosDeParcialesPanel)
+
+	}
+
+	def addButtonsPrueba(Panel resultadosDeParcialesPanel) {
+
+		var buttonsPanel = new Panel(resultadosDeParcialesPanel)
+		buttonsPanel.setLayout(new ColumnLayout(7))
+		this.addActions2(buttonsPanel)
+
+	}
+
+	def addActions2(Panel buttonsPanel) {
+		new Button(buttonsPanel)//TODO: Falta que verifique que alguna nota este seleccionada
+		.setCaption("Editar")
+		.onClick[|this.editarNota]
+		.setAsDefault
+
+		new Button(buttonsPanel)
+		.setCaption("+")
+		.onClick[|this.editarNota]
+		.setAsDefault
+
+		new Button(buttonsPanel) //TODO: preguntar si esta seguro de querer borrar
+		.setCaption("-")
+		.onClick[|this.borrarNota]
+		.setAsDefault
+
+	}
+
+	def createGridResultadosParcial(Panel mainPanel) {
+
+		new Table<Nota>(mainPanel, typeof(Nota)) => [
+			heigth = 100
+			width = 100
+			//			bindItemsToProperty("nombre")
+			this.describeGridResultadosParcial(it)
+		]
+	}
+
+	def describeGridResultadosParcial(Table<Nota> table) {
+		new Column<Nota>(table).setTitle("Fecha").setFixedSize(30).bindContentsToProperty("fecha")
+
+		new Column<Nota>(table).setTitle("Descripcion").setFixedSize(30).bindContentsToProperty("descripcion")
+
+		new Column<Nota>(table).setTitle("Aprobado").setFixedSize(30).bindContentsToProperty("aprobado").
+			bindContentsToTransformer([nota|if(nota.aprobado) "SI" else "NO"])
+
 	}
 
 	def addPanelMaterias(Panel mainPanel) {
-		var panelDeMaterias = new Panel(mainPanel)
-		.setWidth(300)
+		var panelDeMaterias = new Panel(mainPanel).setWidth(300)
 		panelDeMaterias.setLayout(new ColumnLayout(2))
 		this.createGrid(panelDeMaterias)
 
