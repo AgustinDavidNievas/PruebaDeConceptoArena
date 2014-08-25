@@ -68,11 +68,44 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 	override protected createFormPanel(Panel mainPanel) {
 
 		addPanelMaterias(mainPanel)
+		addMateriaSeleccionadaPanel(mainPanel)
 		addDatosDeMateriaPanel(mainPanel)
 		addButtons(mainPanel)
 		addResultadosDeParcialesPanel(mainPanel)
 
 	}
+	
+	//**TODO: cambiar todo esto porque no debe ser una tabla, 
+	//tiene que ser un panel, pero no nos dejaba porque no identificaba a la materia
+	def addMateriaSeleccionadaPanel (Panel mainPanel){
+		var materiaSeleccionadaPanel = new Panel(mainPanel)
+		materiaSeleccionadaPanel
+		.setLayout(new VerticalLayout)
+		this
+		.createMateriaSeleccionada(materiaSeleccionadaPanel)
+		}
+		
+		def createMateriaSeleccionada(Panel materiaSeleccionadaPanel) {
+			new Table<Materia>(materiaSeleccionadaPanel, typeof(Materia)) =>[
+			heigth= 50 
+			width= 400	
+			this.describeMateriaSeleccionada(it)
+			]
+				
+			}
+			
+			def describeMateriaSeleccionada(Table<Materia> table){
+		
+		new Column<Materia>(table)
+		.setBackground(Color::RED)
+		.bindContentsToProperty("nombre")
+				
+				
+				
+			}
+				
+		//**End of TODO: (?)
+	
 
 	def addResultadosDeParcialesPanel(Panel mainPanel) {
 		var resultadosDeParcialesPanel = new Panel(mainPanel)
@@ -150,6 +183,7 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 	}
 
 	def addDatosDeMateriaPanel(Panel mainPanel) {
+		
 
 		var datosMateriasPanel = new Panel(mainPanel).setWidth(500)
 		datosMateriasPanel.setLayout(new ColumnLayout(4))
