@@ -39,40 +39,12 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 		buttonsPanel.setLayout(new ColumnLayout(7))
 		this.addActions(buttonsPanel)
 	}
-
-	//		
-	//		def addPanelPlantasyZombies(Panel mainPanel) {
-	//		//Planel de plantas
-	//		var panelDePlantas = new Panel(mainPanel).setWidth(300)
-	//		panelDePlantas.setLayout(new ColumnLayout(2))
-	//		this.createResultsGrid(panelDePlantas)
-	//
-	//		//Panel ZOMBIE
-	//		var panelDeZombie = new Panel(panelDePlantas)
-	//		panelDeZombie.setLayout(new ColumnLayout(2))
-	//		new Label(panelDeZombie).setText("Zombies")
-	//		new Label(panelDeZombie).setText("Elige el zombie y la fila")
-	//
-	//		new Label(panelDeZombie).setText("Zombie:")
-	//		new Selector(panelDeZombie).allowNull(false) => [
-	//			width = 150
-	//			bindItemsToProperty("zombies")
-	//			bindValueToProperty("zombieSeleccionado")			
-	//		]
-	//
-	//		new Button(panelDeZombie).setAsDefault.setCaption("Atacar") => [
-	//			onClick[|atacar]
-	//			bindEnabled(new NotNullObservable("zombieSeleccionado"))
-	//			disableOnError			
-	//		]
-	//	}
-	//		
+	
 	override protected addActions(Panel actionsPanel) {
 		new Button(actionsPanel).setCaption("NuevaMateria").onClick[|this.nuevaMateria].setAsDefault
 
 	}
 
-	//Panel linkeado con seguidorDeCarrera que es el main panel
 	def createGrid(Panel mainPanel) {
 
 		new Table<Materia>(mainPanel, typeof(Materia)) => [
@@ -99,7 +71,7 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 
 	def addResultadosDeParcialesPanel(Panel mainPanel) {
 		var resultadosDeParcialesPanel = new Panel(mainPanel)
-		resultadosDeParcialesPanel.setLayout(new ColumnLayout(4))
+		resultadosDeParcialesPanel.setLayout(new ColumnLayout(1))
 		this.createGridResultadosParcial(resultadosDeParcialesPanel)
 
 		addButtonsPrueba(resultadosDeParcialesPanel)
@@ -181,23 +153,7 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 	//	checkFinalAprobado.bindValueToProperty("finalAprobado")
 	}
 
-	//Esta es la lista de materias con la barrita linda y toda la cosa.
-	//	def protected describeResultsGrid(Table<Materia> table) {
-	//			
-	//		new Column<Materia>(table) 
-	//			.setTitle("Nombre")
-	//			.setFixedSize(300)
-	//			.bindContentsToProperty("nombre")
-	//
-	//
-	//	}
-	//
-	////Esta intenta ser la parte de NotasDeCursada 
-	//	def void describeResultsGrid(Table<Materia> table) {
-	//		new Column<Materia>(table) 
-	//		.setTitle("Materias").setFixedSize(150).bindContentsToProperty("nombre")
-	//	}
-	//	
+	
 	//****Acciones de los botones**//
 	def void nuevaMateria() {
 		this.openDialog(new NuevaMateria(this))
