@@ -55,6 +55,7 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 		new Table<Materia>(mainPanel, typeof(Materia)) => [
 			heigth = 350
 			width = 150
+			bindContentsToProperty("coleccionMaterias")
 			//			bindItemsToProperty("nombre")
 			this.describeResultsGrid(it)
 		]
@@ -62,7 +63,10 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 	}
 
 	def describeResultsGrid(Table<Materia> table) {
-		new Column<Materia>(table).setTitle("Materias").setFixedSize(30).bindContentsToProperty("nombre")
+		new Column<Materia>(table)
+		.setTitle("Materias")
+		.setFixedSize(30)
+		.bindContentsToProperty("nombre")
 	}
 
 	override protected createFormPanel(Panel mainPanel) {
