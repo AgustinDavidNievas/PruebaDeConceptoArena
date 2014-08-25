@@ -75,36 +75,12 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 
 	}
 	
-	//**TODO: cambiar todo esto porque no debe ser una tabla, 
-	//tiene que ser un panel, pero no nos dejaba porque no identificaba a la materia
-	def addMateriaSeleccionadaPanel (Panel mainPanel){
-		var materiaSeleccionadaPanel = new Panel(mainPanel)
-		materiaSeleccionadaPanel
-		.setLayout(new VerticalLayout)
-		this
-		.createMateriaSeleccionada(materiaSeleccionadaPanel)
+		def addMateriaSeleccionadaPanel (Panel mainPanel){	
+		new Label(mainPanel).
+		setWidth(90)
+		.bindValueToProperty("materiaSeleccionada")
+		
 		}
-		
-		def createMateriaSeleccionada(Panel materiaSeleccionadaPanel) {
-			new Table<Materia>(materiaSeleccionadaPanel, typeof(Materia)) =>[
-			heigth= 50 
-			width= 400	
-			this.describeMateriaSeleccionada(it)
-			]
-				
-			}
-			
-			def describeMateriaSeleccionada(Table<Materia> table){
-		
-		new Column<Materia>(table)
-		.setBackground(Color::RED)
-		.bindContentsToProperty("nombre")
-				
-				
-				
-			}
-				
-		//**End of TODO: (?)
 	
 
 	def addResultadosDeParcialesPanel(Panel mainPanel) {
