@@ -28,8 +28,8 @@ class Materia {
 	
 	def crearMateria(String nombre){
 		new Materia(nombre)
-		notasDeCursada = newArrayList
-		seguidorDeCarrera.agregarMateria(this)
+		this.notasDeCursada = newArrayList
+		this.seguidorDeCarrera.agregarMateria(this)
 		println("pase por crearMateria, se creo el newArrayList y se agrego en el seguidorDeMaterias")
 	
 		//probablemente cuando esto pasa se tiene que agregar en la coleccion de materias del seguidor de carrera

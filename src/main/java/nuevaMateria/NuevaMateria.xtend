@@ -6,6 +6,7 @@ import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.TextBox
 import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.WindowOwner
+import java.awt.Color
 
 class NuevaMateria extends Dialog<Materia> {
 
@@ -26,12 +27,14 @@ class NuevaMateria extends Dialog<Materia> {
 			caption = "Aceptar"
 			onClick [|this.modelObject.crearMateria("nombre")]
 		]
+		
+		/*esto es para entender que shit pasa que no funciona el boton */
+		new Label(mainPanel).setBackground(Color::ORANGE).bindValueToProperty("nombre")
+
+		new Label(mainPanel).setText("valor del atributo nombre")
+		/**************************shit******************************* */
 	}
 
-	/*def static main(String[] args) {
-		new NuevaMateria().startApplication
-	}*/
-	
 	override createFormPanel(Panel mainPanel) {
 		this.setTitle("Nueva Materia")
 
@@ -44,6 +47,8 @@ class NuevaMateria extends Dialog<Materia> {
 			caption = "Aceptar"
 			onClick [|this.modelObject.crearMateria("nombre")]
 		]
+		
+		
 	}
 	
 }
