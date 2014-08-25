@@ -23,6 +23,10 @@ class NuevaMateria extends Dialog<Materia> {
 		textoNombre.bindValueToProperty("nombre")
 		textoNombre.width = 200
 
+		/******para que funcione el boton bien*******/
+		//this.accept		
+		/*******************************************/
+
 		new Button(mainPanel) => [
 			caption = "Aceptar"
 			onClick [|this.modelObject.crearMateria("nombre")]
@@ -33,6 +37,8 @@ class NuevaMateria extends Dialog<Materia> {
 
 		new Label(mainPanel).setText("valor del atributo nombre")
 		/**************************shit******************************* */
+		
+		
 	}
 
 	override createFormPanel(Panel mainPanel) {
@@ -42,7 +48,7 @@ class NuevaMateria extends Dialog<Materia> {
 		val textoNombre = new TextBox(mainPanel)
 		textoNombre.bindValueToProperty("nombre")
 		textoNombre.width = 200
-
+		
 		new Button(mainPanel) => [
 			caption = "Aceptar"
 			onClick [|this.modelObject.crearMateria("nombre")]
