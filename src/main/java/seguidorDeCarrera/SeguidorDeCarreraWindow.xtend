@@ -41,7 +41,10 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 	}
 	
 	override protected addActions(Panel actionsPanel) {
-		new Button(actionsPanel).setCaption("NuevaMateria").onClick[|this.nuevaMateria].setAsDefault
+		new Button(actionsPanel)
+		.setCaption("NuevaMateria")
+		.onClick[|this.nuevaMateria]
+		.setAsDefault
 
 	}
 
@@ -71,8 +74,10 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 
 	def addResultadosDeParcialesPanel(Panel mainPanel) {
 		var resultadosDeParcialesPanel = new Panel(mainPanel)
-		resultadosDeParcialesPanel.setLayout(new ColumnLayout(1))
-		this.createGridResultadosParcial(resultadosDeParcialesPanel)
+		resultadosDeParcialesPanel
+		.setLayout(new ColumnLayout(1))
+		this
+		.createGridResultadosParcial(resultadosDeParcialesPanel)
 
 		addButtonsPrueba(resultadosDeParcialesPanel)
 
@@ -115,12 +120,21 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 	}
 
 	def describeGridResultadosParcial(Table<Nota> table) {
-		new Column<Nota>(table).setTitle("Fecha").setFixedSize(30).bindContentsToProperty("fecha")
+		new Column<Nota>(table)
+		.setTitle("Fecha")
+		.setFixedSize(30)
+		.bindContentsToProperty("fecha")
 
-		new Column<Nota>(table).setTitle("Descripcion").setFixedSize(30).bindContentsToProperty("descripcion")
+		new Column<Nota>(table)
+		.setTitle("Descripcion")
+		.setFixedSize(30)
+		.bindContentsToProperty("descripcion")
 
-		new Column<Nota>(table).setTitle("Aprobado").setFixedSize(30).bindContentsToProperty("aprobado").
-			bindContentsToTransformer([nota|if(nota.aprobado) "SI" else "NO"])
+		new Column<Nota>(table)
+		.setTitle("Aprobado")
+		.setFixedSize(30)
+		.bindContentsToProperty("aprobado")
+		.bindContentsToTransformer([nota|if(nota.aprobado) "SI" else "NO"])
 
 	}
 
