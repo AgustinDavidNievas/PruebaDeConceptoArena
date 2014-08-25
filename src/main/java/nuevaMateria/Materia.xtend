@@ -18,7 +18,7 @@ class Materia {
 
 	new(String nombre) {
 		this.nombre = nombre
-
+		this.notasDeCursada = newArrayList
 	}
 
 	new() {
@@ -27,15 +27,16 @@ class Materia {
 
 	def crearMateria(String nombre) {
 		new Materia(nombre)
-		this.notasDeCursada = newArrayList
-		this.seguidorDeCarrera = new SeguidorDeCarrera
-		this.seguidorDeCarrera.agregarMateria(this)
+		//this.notasDeCursada = newArrayList
+		//this.seguidorDeCarrera = new SeguidorDeCarrera
+		//this.seguidorDeCarrera.agregarMateria(this)
+		SeguidorDeCarrera.seguidorDeCarreraUnico.agregarMateria(this)
 
 	}
 
 	def agregarNota(Nota nota) {
-		this.seguidorDeCarrera = new SeguidorDeCarrera
-		this.notasDeCursada = newArrayList
+		//this.seguidorDeCarrera = new SeguidorDeCarrera
+		
 		this.notasDeCursada.add(nota)
 
 	}

@@ -21,6 +21,12 @@ class SeguidorDeCarrera {
 	@Property Materia materiaSeleccionada
 	@Property Nota notaSeleccionada
 	
+	static SeguidorDeCarrera seguidorDeCarreraUnico = new SeguidorDeCarrera
+	
+	def static seguidorDeCarreraUnico(){
+		seguidorDeCarreraUnico
+	}
+	
 	def agregarMateria(Materia materia) {
 
 		this.coleccionMaterias.add(materia)
