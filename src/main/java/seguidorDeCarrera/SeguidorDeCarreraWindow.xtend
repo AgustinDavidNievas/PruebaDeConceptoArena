@@ -122,10 +122,11 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 
 		new Button(buttonsPanel) //TODO: preguntar si esta seguro de querer borrar
 		.setCaption("-")
-		.onClick[|this.borrarNota]
+		.onClick[|modelObject.borrarNota]
 		.setAsDefault
 
 	}
+	
 
 	def createGridResultadosParcial(Panel mainPanel) {
 		
@@ -217,7 +218,7 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 	}
 
 	def openDialog(Dialog<?> dialog) {
-		dialog.onAccept[|modelObject.inicializarColeccionDeMaterias]
+		dialog.onAccept[|modelObject.actualizar]
 		dialog.open
 	}
 	

@@ -42,8 +42,6 @@ class SeguidorDeCarrera implements Serializable{
 
 	def void inicializarColeccionDeMaterias() {
 		coleccionMaterias = newArrayList
-		//coleccionMaterias = getHomeMaterias().dameTodasLasMaterias(nombre)
-		//this.coleccionMaterias= homeMaterias.allInstances.toList
 	}
 	
 	
@@ -59,4 +57,17 @@ class SeguidorDeCarrera implements Serializable{
 	def settearonElAnioDeCursadaDe(Materia materiaSeleccionada, int anioDeCursada){
 		this.observerDelAnioDeCursada.settearonUnAnio(materiaSeleccionada,anioDeCursada)
 	}
+	
+	def borrarNota() {
+		getHomeMaterias().delete(materiaSeleccionada)
+		this.actualizar
+		materiaSeleccionada = null
+	}
+	
+	def actualizar() {
+		coleccionMaterias = newArrayList
+		//this.coleccionMaterias= homeMaterias.allInstances.toList
+		coleccionMaterias = getHomeMaterias().dameTodasLasMaterias(nombre)
+	}
+	
 }
