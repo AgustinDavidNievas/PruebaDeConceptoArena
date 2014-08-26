@@ -4,9 +4,10 @@ import editarNota.Nota
 import java.util.List
 import org.uqbar.commons.utils.Observable
 import seguidorDeCarrera.SeguidorDeCarrera
+import org.uqbar.commons.model.Entity
 
 @Observable
-class Materia {
+class Materia extends Entity implements Cloneable {
 
 	@Property Boolean finalAprobado
 	@Property String nombre

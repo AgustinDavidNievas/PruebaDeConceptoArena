@@ -7,6 +7,8 @@ import org.uqbar.commons.utils.ApplicationContext
 import editarNota.HomeNotas
 import editarNota.Nota
 import seguidorDeCarrera.SeguidorDeCarrera
+import nuevaMateria.Materia
+import nuevaMateria.HomeMaterias
 
 class PruebaDeConceptoArenaApplication extends Application {
 	
@@ -17,6 +19,7 @@ class PruebaDeConceptoArenaApplication extends Application {
 	
 override protected Window<?> createMainWindow() {
 		ApplicationContext.instance.configureSingleton(typeof(Nota), new HomeNotas)
+		ApplicationContext::instance.configureSingleton(typeof(Materia), new HomeMaterias)
 		
 		return new SeguidorDeCarreraWindow(this)
 	}
