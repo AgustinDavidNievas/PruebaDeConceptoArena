@@ -7,9 +7,10 @@ import java.util.ArrayList
 import editarNota.Nota
 import org.uqbar.commons.utils.ApplicationContext
 import nuevaMateria.HomeMaterias
+import java.io.Serializable
 
 @Observable
-class SeguidorDeCarrera {
+class SeguidorDeCarrera implements Serializable{
 
 	@Property List<Materia> coleccionMaterias = new ArrayList
 	@Property String ubicacionDeLaMateria
