@@ -26,6 +26,7 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 
 	new(WindowOwner parent) {
 		super(parent, SeguidorDeCarrera.seguidorDeCarreraUnico)
+		modelObject.inicializarColeccionDeMaterias()
 	}
 
 	override def createMainTemplate(Panel mainPanel) {
@@ -216,8 +217,11 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 	}
 
 	def openDialog(Dialog<?> dialog) {
+		dialog.onAccept[|modelObject.inicializarColeccionDeMaterias]
 		dialog.open
 	}
+	
+	
 
 	def void borrarNota() { //TODO: Que borre el que esté seleccionado
 	}

@@ -12,20 +12,17 @@ import nuevaMateria.HomeMaterias
 
 class PruebaDeConceptoArenaApplication extends Application {
 	
-//	override protected createMainWindow() {
-//		return new SeguidorDeCarreraWindow(this)
-//	}
-//	
+static def void main(String[] args) { 
+		new PruebaDeConceptoArenaApplication().start()
+	}
 	
 override protected Window<?> createMainWindow() {
 		ApplicationContext.instance.configureSingleton(typeof(Nota), new HomeNotas)
-		ApplicationContext::instance.configureSingleton(typeof(Materia), new HomeMaterias)
+		ApplicationContext.instance.configureSingleton(typeof(Materia), new HomeMaterias)
 		
 		return new SeguidorDeCarreraWindow(this)
 	}
 		
-	static def void main(String[] args) { 
-		new PruebaDeConceptoArenaApplication().start()
-	}
+	
 	
 }

@@ -5,6 +5,8 @@ import nuevaMateria.Materia
 import org.uqbar.commons.utils.Observable
 import java.util.ArrayList
 import editarNota.Nota
+import org.uqbar.commons.utils.ApplicationContext
+import nuevaMateria.HomeMaterias
 
 @Observable
 class SeguidorDeCarrera {
@@ -13,6 +15,7 @@ class SeguidorDeCarrera {
 	@Property String ubicacionDeLaMateria
 	@Property int anioDeCursada
 	@Property Boolean finalAprobado
+	@Property String nombre
 	
 	@Property Observer observerDelCheckBoxAprobado
 	@Property Observer observerDelAnioDeCursada
@@ -30,15 +33,21 @@ class SeguidorDeCarrera {
 	def agregarMateria(Materia materia) {
 
 		this.coleccionMaterias.add(materia)
-
 	}
 
 	new() {
 		this.inicializarColeccionDeMaterias
 	}
 
-	def inicializarColeccionDeMaterias() {
+	def void inicializarColeccionDeMaterias() {
 		coleccionMaterias = newArrayList
+		//coleccionMaterias = getHomeMaterias().dameTodasLasMaterias(nombre)
+	}
+	
+	
+	def HomeMaterias getHomeMaterias(){
+		ApplicationContext.instance.getSingleton(typeof(Materia))
+		
 	}
 	
 	def clickEnCheckBoxAprobado(Materia materiaSeleccionada){

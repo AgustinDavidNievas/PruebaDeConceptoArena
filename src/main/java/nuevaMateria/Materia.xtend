@@ -43,4 +43,8 @@ class Materia extends Entity implements Cloneable {
 		this.notasDeCursada.add(nota)
 
 	}
+	
+	override clone()	{
+		return super.clone
+	}
 }

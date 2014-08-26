@@ -1,7 +1,10 @@
 package nuevaMateria
 
 import org.uqbar.commons.model.CollectionBasedHome
+import org.uqbar.commons.utils.Observable
+import org.apache.commons.collections15.Predicate
 
+@Observable
 class HomeMaterias extends CollectionBasedHome<Materia> {
 
 	new() {
@@ -9,19 +12,36 @@ class HomeMaterias extends CollectionBasedHome<Materia> {
 	}
 
 	def void init() {
-		create("Matematica")
-		create("Lengua")
+		this.create("Matematica")
+		this.create("Lengua")
 
 	}
 
-	def create(String pNombre) {
+	def void create(String pNombre) {
 		var materia = new Materia
 		materia.nombre = pNombre
 
 		this.create(materia)
 	}
+	
+	def dameTodasLasMaterias(String nombre){
+		allInstances.filter[materia| this.match(nombre, materia.nombre)].toList
+		
+	}
 
-	override protected getCriterio(Materia example) {
+	def match(String valorEsperado, String valorReal){
+		if (valorEsperado == null) {
+			return true
+			
+		}	if (valorReal == null){
+			return false
+		}
+		valorReal.toString().toLowerCase().contains(valorEsperado.toString().toLowerCase())
+		
+		
+	}
+	
+	override def Predicate<Materia> getCriterio(Materia example) {
 		null
 	}
 
@@ -29,7 +49,7 @@ class HomeMaterias extends CollectionBasedHome<Materia> {
 		new Materia
 	}
 
-	override getEntityType() {
+	override def getEntityType() {
 		typeof(Materia)
 	}
 
