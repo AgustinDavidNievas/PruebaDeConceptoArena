@@ -45,7 +45,7 @@ class EditarNota extends Dialog<Nota> {
 		textoNombre2.width = 200
 		val form = new Panel(mainPanel)
 		form.layout = new ColumnLayout(2)
-		new Label(form).text = "Aprobo Final"
+		new Label(form).text = "Aprobado"
 		var checkResumen = new CheckBox(form)
 		checkResumen.bindEnabledToProperty("aprobado")
 		checkResumen.bindValueToProperty("aprobado")

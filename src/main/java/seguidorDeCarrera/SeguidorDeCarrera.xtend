@@ -43,6 +43,7 @@ class SeguidorDeCarrera implements Serializable{
 	def void inicializarColeccionDeMaterias() {
 		coleccionMaterias = newArrayList
 		//coleccionMaterias = getHomeMaterias().dameTodasLasMaterias(nombre)
+		//this.coleccionMaterias= homeMaterias.allInstances.toList
 	}
 	
 	
