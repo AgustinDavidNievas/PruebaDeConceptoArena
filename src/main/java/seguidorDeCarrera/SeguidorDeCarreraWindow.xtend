@@ -35,6 +35,16 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 		createFormPanel(mainPanel)
 
 	}
+	
+	override protected createFormPanel(Panel mainPanel) {
+
+		addPanelMaterias(mainPanel)
+		addMateriaSeleccionadaPanel(mainPanel)
+		addDatosDeMateriaPanel(mainPanel)
+		addButtons(mainPanel)
+		addResultadosDeParcialesPanel(mainPanel)
+
+	}
 
 	def addButtons(Panel mainPanel) {
 		var buttonsPanel = new Panel(mainPanel)
@@ -52,11 +62,11 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 
 	def createGrid(Panel mainPanel) {
 
-		new Table<Materia>(mainPanel, typeof(Materia)) => [
+		var prueba = new Table<Materia>(mainPanel, typeof(Materia)) => [
 			heigth = 350
 			width = 150
-			bindContentsToProperty("coleccionMaterias")
-			//			bindItemsToProperty("nombre")
+			bindItemsToProperty("coleccionMaterias")
+			bindValueToProperty("materiaSeleccionada")
 			this.describeResultsGrid(it)
 		]
 
@@ -69,15 +79,7 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 		.bindContentsToProperty("nombre")
 	}
 
-	override protected createFormPanel(Panel mainPanel) {
-
-		addPanelMaterias(mainPanel)
-		addMateriaSeleccionadaPanel(mainPanel)
-		addDatosDeMateriaPanel(mainPanel)
-		addButtons(mainPanel)
-		addResultadosDeParcialesPanel(mainPanel)
-
-	}
+	
 	
 		def addMateriaSeleccionadaPanel (Panel mainPanel){	
 		new Label(mainPanel).
