@@ -23,6 +23,8 @@ class Materia {
 
 	new() {
 		super()
+		this.notasDeCursada = newArrayList
+		
 	}
 
 	def crearMateria(String nombre) {

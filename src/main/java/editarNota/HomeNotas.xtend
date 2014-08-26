@@ -6,16 +6,15 @@ import java.util.Date
 
 @Observable
 class HomeNotas extends CollectionBasedHome<Nota> {
-	
-		
-		def void create(Date pFecha, String pDescripcion, Boolean estasAprobado) {
+
+	def void create(String pFecha, String pDescripcion, Boolean estasAprobado) {
 		var nota = new Nota
 		nota.fecha = pFecha
-		nota.descripcion = pDescripcion		
+		nota.descripcion = pDescripcion
 		nota.aprobado = estasAprobado
 		this.create(nota)
 	}
-	
+
 	override def getEntityType() {
 		typeof(Nota)
 	}
@@ -23,10 +22,9 @@ class HomeNotas extends CollectionBasedHome<Nota> {
 	override def createExample() {
 		new Nota
 	}
-	
+
 	override def /*Predicate<Nota>*/ getCriterio(Nota example) {
 		null
 	}
-	
-	
+
 }

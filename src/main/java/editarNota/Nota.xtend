@@ -10,7 +10,7 @@ import seguidorDeCarrera.SeguidorDeCarrera
 class Nota extends Entity implements Cloneable {
 
 
-	@Property Date fecha
+	@Property String fecha
 	@Property String descripcion
 	@Property Boolean aprobado
 	@Property Materia materia
@@ -34,6 +34,10 @@ class Nota extends Entity implements Cloneable {
 	}
 
 	def agregarDesc(String descripcion) {
+
+		this.materia = new Materia
+		
+		SeguidorDeCarrera.seguidorDeCarreraUnico.agregarMateria(materia)
 
 		this.descripcion = descripcion
 
