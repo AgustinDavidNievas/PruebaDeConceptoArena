@@ -47,4 +47,5 @@ class Materia extends Entity implements Cloneable {
 	override clone()	{
 		return super.clone
 	}
+	
 }

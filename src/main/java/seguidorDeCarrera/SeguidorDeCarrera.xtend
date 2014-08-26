@@ -35,9 +35,13 @@ class SeguidorDeCarrera implements Serializable{
 
 		this.coleccionMaterias.add(materia)
 	}
+	
+	
 
 	new() {
 		this.inicializarColeccionDeMaterias
+		
+		
 	}
 
 	def void inicializarColeccionDeMaterias() {
@@ -68,10 +72,13 @@ class SeguidorDeCarrera implements Serializable{
 		coleccionMaterias = newArrayList
 		//this.coleccionMaterias= homeMaterias.allInstances.toList
 		coleccionMaterias = getHomeMaterias().dameTodasLasMaterias(nombre)
+		this.seleccionarMateriaNumeroUno
+	
 	}
 	
-	def materiaSeleccionadaNombre(){
-		this.materiaSeleccionada.nombre
+	def seleccionarMateriaNumeroUno() {
+		if (coleccionMaterias.size > 0)
+			materiaSeleccionada = coleccionMaterias.get(0)
 	}
-	
+
 }

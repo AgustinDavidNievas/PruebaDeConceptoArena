@@ -67,7 +67,7 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 			heigth = 350
 			width = 150
 			bindItemsToProperty("coleccionMaterias")
-			bindValueToProperty("materiaSeleccionadaNombre")
+			bindValueToProperty("materiaSeleccionada.nombre")
 			this.describeResultsGrid(it)
 		]
 
@@ -85,7 +85,7 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 		def addMateriaSeleccionadaPanel (Panel mainPanel){	
 		new Label(mainPanel)
 		.setWidth(90)
-		.bindValueToProperty("materiaSeleccionada")
+		.bindValueToProperty("materiaSeleccionada.nombre")
 		
 		}
 	

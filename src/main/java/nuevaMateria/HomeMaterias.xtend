@@ -18,8 +18,8 @@ class HomeMaterias extends CollectionBasedHome<Materia> {
 	}
 
 	def void create(String pNombre) {
-		var materia = new Materia
-		materia.nombre = pNombre
+		var materia = new Materia(pNombre)
+		//materia.nombre = pNombre
 
 		this.create(materia)
 	}
