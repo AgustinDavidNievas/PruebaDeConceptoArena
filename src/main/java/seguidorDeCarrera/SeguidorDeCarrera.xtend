@@ -70,4 +70,8 @@ class SeguidorDeCarrera implements Serializable{
 		coleccionMaterias = getHomeMaterias().dameTodasLasMaterias(nombre)
 	}
 	
+	def materiaSeleccionadaNombre(){
+		this.materiaSeleccionada.nombre
+	}
+	
 }

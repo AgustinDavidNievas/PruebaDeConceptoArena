@@ -26,7 +26,7 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 
 	new(WindowOwner parent) {
 		super(parent, SeguidorDeCarrera.seguidorDeCarreraUnico)
-		modelObject.inicializarColeccionDeMaterias()
+		modelObject.actualizar()
 	}
 
 	override def createMainTemplate(Panel mainPanel) {
@@ -67,7 +67,7 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 			heigth = 350
 			width = 150
 			bindItemsToProperty("coleccionMaterias")
-			bindValueToProperty("materiaSeleccionada")
+			bindValueToProperty("materiaSeleccionadaNombre")
 			this.describeResultsGrid(it)
 		]
 
@@ -83,8 +83,8 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 	
 	
 		def addMateriaSeleccionadaPanel (Panel mainPanel){	
-		new Label(mainPanel).
-		setWidth(90)
+		new Label(mainPanel)
+		.setWidth(90)
 		.bindValueToProperty("materiaSeleccionada")
 		
 		}
