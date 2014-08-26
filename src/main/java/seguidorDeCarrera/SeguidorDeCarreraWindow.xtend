@@ -63,7 +63,7 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 
 	def createGrid(Panel mainPanel) {
 
-		var prueba = new Table<Materia>(mainPanel, typeof(Materia)) => [
+	new Table<Materia>(mainPanel, typeof(Materia)) => [
 			heigth = 350
 			width = 150
 			bindItemsToProperty("coleccionMaterias")
