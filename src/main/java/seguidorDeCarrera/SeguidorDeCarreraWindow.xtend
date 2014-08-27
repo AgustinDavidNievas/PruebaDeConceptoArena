@@ -192,16 +192,11 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 	//	checkFinalAprobado.bindValueToProperty("finalAprobado")
 		
 		
-		var labelUbicacionDeMateria = new Label(datosMateriasPanel).setText("Ubicación materia")
+		new Label(datosMateriasPanel).setText("Ubicación materia")
 		.foreground = Color::ORANGE
 		new Selector(datosMateriasPanel).allowNull(false) => [
 			width = 150
-//TODO: que muestre las posibles opciones.
-//**Ejemplo
-//			bindItemsToProperty("zombies")
-//			bindValueToProperty("zombieSeleccionado")	
-
-		
+			bindItemsToProperty("ubicaciones")
 		]
 
 		

@@ -13,7 +13,7 @@ import java.io.Serializable
 class SeguidorDeCarrera implements Serializable{
 
 	@Property List<Materia> coleccionMaterias = new ArrayList
-	@Property String ubicacionDeLaMateria
+	@Property List<String> ubicaciones
 	@Property int anioDeCursada
 	@Property Boolean finalAprobado
 	@Property String nombre
@@ -40,10 +40,29 @@ class SeguidorDeCarrera implements Serializable{
 
 	new() {
 		this.inicializarColeccionDeMaterias
-		
+		this.inicializarUbicaciones
 		
 	}
 
+	def void inicializarUbicaciones(){
+		ubicaciones = newArrayList
+		this.ubicaciones.add("2014 - 1°Cuatrimestre")
+		this.ubicaciones.add("2014 - 2°Cuatrimestre")
+		this.ubicaciones.add("2014 - Anual")
+		this.ubicaciones.add("2013 - 1°Cuatrimestre")
+		this.ubicaciones.add("2013 - 2°Cuatrimestre")
+		this.ubicaciones.add("2013 - Anual")
+		this.ubicaciones.add("2012 - 1°Cuatrimestre")
+		this.ubicaciones.add("2012 - 2°Cuatrimestre")
+		this.ubicaciones.add("2012 - Anual")
+		
+		
+		
+		
+	}
+		
+		
+	
 	def void inicializarColeccionDeMaterias() {
 		coleccionMaterias = newArrayList
 	}
