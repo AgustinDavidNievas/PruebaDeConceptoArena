@@ -1,26 +1,22 @@
 package seguidorDeCarrera
 
-import editarNota.EditarNota
+import editarNota.CrearNotaWindow
+import editarNota.Nota
 import java.awt.Color
 import nuevaMateria.Materia
 import nuevaMateria.NuevaMateria
 import org.uqbar.arena.layout.ColumnLayout
 import org.uqbar.arena.widgets.Button
+import org.uqbar.arena.widgets.CheckBox
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.Panel
+import org.uqbar.arena.widgets.Selector
 import org.uqbar.arena.widgets.TextBox
 import org.uqbar.arena.widgets.tables.Column
 import org.uqbar.arena.widgets.tables.Table
 import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
-
-import editarNota.CrearNotaWindow
-
-import org.uqbar.arena.layout.VerticalLayout
-import org.uqbar.arena.widgets.CheckBox
-import editarNota.Nota
-import org.uqbar.arena.widgets.Selector
 
 class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 
@@ -56,7 +52,9 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 	override protected addActions(Panel actionsPanel) {
 		new Button(actionsPanel)
 		.setCaption("NuevaMateria")
-		.onClick[|this.nuevaMateria]
+		.onClick[|
+			this.nuevaMateria
+		]
 		.setAsDefault
 
 	}
@@ -66,8 +64,8 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 	new Table<Materia>(mainPanel, typeof(Materia)) => [
 			heigth = 350
 			width = 150
-			bindItemsToProperty("coleccionMaterias")
-			bindValueToProperty("materiaSeleccionada.nombre")
+			bindItemsToProperty("materias")
+			bindValueToProperty("materiaSeleccionada")
 			this.describeResultsGrid(it)
 		]
 
@@ -77,7 +75,7 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 		new Column<Materia>(table)
 		.setTitle("Materias")
 		.setFixedSize(30)
-		.bindContentsToProperty("nombre")
+		.bindContentsToProperty(Materia.nombre_Property)
 	}
 
 	
@@ -118,12 +116,10 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 		new Button(buttonsPanel)
 		.setCaption("+")
 		.onClick[|this.editarNota]
-		.setAsDefault
 
 		new Button(buttonsPanel) //TODO: preguntar si esta seguro de querer borrar
 		.setCaption("-")
 		.onClick[|modelObject.borrarNota]
-		.setAsDefault
 
 	}
 	
@@ -160,7 +156,7 @@ class SeguidorDeCarreraWindow extends SimpleWindow<SeguidorDeCarrera> {
 	}
 
 	def addPanelMaterias(Panel mainPanel) {
-		var panelDeMaterias = new Panel(mainPanel).setWidth(300)
+		var panelDeMaterias = new Panel(mainPanel)	
 		panelDeMaterias.setLayout(new ColumnLayout(2))
 		this.createGrid(panelDeMaterias)
 

@@ -10,7 +10,10 @@ import org.uqbar.commons.model.Entity
 class Materia extends Entity implements Cloneable {
 
 	@Property Boolean finalAprobado
+
 	@Property String nombre
+	public val static nombre_Property = "nombre"
+
 	@Property int anioDeCursada
 	@Property List<Nota> notasDeCursada
 	@Property String ubicacionDeLaMateria
