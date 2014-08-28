@@ -18,7 +18,6 @@ static def void main(String[] args) {
 override protected Window<?> createMainWindow() {
 		ApplicationContext.instance.configureSingleton(typeof(Nota), new HomeNotas)
 		ApplicationContext.instance.configureSingleton(typeof(Materia), new HomeMaterias)
-		
 		return new SeguidorDeCarreraWindow(this)
 	}
 		
